@@ -1,0 +1,8 @@
+BACKEND
+- models.py (Drivers, circuits schema)
+- populate.py (add dummy data for Milestone 0)
+- tell them to run populate.py
+- dockerfile
+
+FRONTEND
+- react app
