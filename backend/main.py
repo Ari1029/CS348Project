@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database import execute_query
+from routers import circuits
 
 app = FastAPI()
 
@@ -14,7 +15,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(circuits.router)
+
 @app.get("/")
-def read_root():
+async def read_root():
     result = execute_query('hello_cs348.sql')
     return {"message": result}

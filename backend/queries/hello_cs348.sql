@@ -5,6 +5,6 @@ CREATE TABLE hello_cs348 (
 );
 
 INSERT INTO hello_cs348 VALUES (1, 'Hello, CS348!');
-INSERT INTO hello_cs348 VALUES (2, 'Goodbye, CS348!');
+INSERT INTO hello_cs348 VALUES (2, 'Goodbye, CS348! Testing dev branch');
 
 SELECT * FROM hello_cs348; -- Returns entries in new table
