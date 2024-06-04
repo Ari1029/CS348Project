@@ -19,5 +19,5 @@ app.include_router(circuits.router)
 
 @app.get("/")
 async def read_root():
-    result = execute_query('hello_cs348.sql')
+    result = execute_query('get_circuits.sql')
     return {"message": result}
