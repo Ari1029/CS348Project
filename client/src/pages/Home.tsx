@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import defaultApi from './api/default'
+import defaultApi from '../api/default'
 
-export default function App() {
+export const Home = () => {
   const [data, setData] = useState([0, 'temp']);
 
   useEffect(() => {
@@ -41,3 +41,5 @@ export default function App() {
     </div>
   );
 }
+
+export default Home;
