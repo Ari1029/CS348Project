@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <div>
-      <h1>Data from the "hello_cs348" relation</h1>
+      <h1>Data from the "circuits" relation</h1>
       {data !== null ? <div className="table-container">
         <table className="table">
           <thead>
