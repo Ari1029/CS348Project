@@ -75,6 +75,7 @@ CREATE TABLE PitStops(
   lap INT,
   time VARCHAR(255),
   duration VARCHAR(255),
+  milliseconds INT,
   PRIMARY KEY (raceId, driverId, stop)
 );
 
@@ -152,9 +153,7 @@ CREATE TABLE SprintResults(
   time VARCHAR(255),
   milliseconds INT,
   fastestLap INT,
-  rank INT,
   fastestLapTime VARCHAR(255),
-  fastestLapSpeed VARCHAR(255),
   statusId INT
 );
 
