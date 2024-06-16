@@ -15,7 +15,7 @@ CREATE TABLE ConstructorResults(
   raceId INT,
   constructorId INT,
   points DECIMAL(10, 2),
-  status VARCHAR(255),
+  status VARCHAR(255)
 );
 
 CREATE TABLE ConstructorStandings(
@@ -75,6 +75,7 @@ CREATE TABLE PitStops(
   lap INT,
   time VARCHAR(255),
   duration VARCHAR(255),
+  milliseconds INT,
   PRIMARY KEY (raceId, driverId, stop)
 );
 
@@ -133,7 +134,7 @@ CREATE TABLE Results(
 );
 
 CREATE TABLE Seasons(
-  year INT NOT NULL PRIMARY KEY,
+  year INT NOT NULL,
   url VARCHAR(255)
 );
 
@@ -152,9 +153,7 @@ CREATE TABLE SprintResults(
   time VARCHAR(255),
   milliseconds INT,
   fastestLap INT,
-  rank INT,
   fastestLapTime VARCHAR(255),
-  fastestLapSpeed VARCHAR(255),
   statusId INT
 );
 
