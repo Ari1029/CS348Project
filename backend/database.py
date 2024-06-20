@@ -31,6 +31,12 @@ def test_neon():
   print('PostgreSQL version:', version)
 
 def execute_query(query):
+  """
+  Performs a query on the database
+
+  :param query: The exact SQL that we execute on the database 
+  :return: Any response from the SQL command
+  """
   conn = use_conn()
   cursor = conn.cursor()
 
@@ -45,19 +51,43 @@ def execute_query(query):
     cursor.close()
     conn.close()
     return res
-  
-def make_query(query, arg_dict):
+
+def format_sql(template, args):
+  """
+  Replaces placeholders in the SQL template with values from the args dictionary.
+
+  :param template: The SQL template string with placeholders in the form ${placeholder}
+  :param args: Dictionary containing the values to replace in the template
+  :return: The formatted SQL string
+  """
+  formatted_sql = template
+
+  for key, value in args.items():
+      placeholder = '${' + key + '}'
+      if isinstance(value, str):
+          value = f"'{value}'"
+      formatted_sql = formatted_sql.replace(placeholder, str(value))
+
+  return formatted_sql
+
+def make_query(query, arg_dict = []):
+  """
+  Makes the query on the database; Only function our routers interact with
+
+  :param query: The SQL file that we want to execute our query from
+  :arg_dict: A dictionary containing the values to replace in the SQL query
+  :return: Any response from the formatted SQL query
+  """
   with open('./queries/'+query, 'r') as sql_file:
     sql_query = sql_file.read()
 
-  for key in arg_dict:
-    sql_query = sql_query.replace(f'${key}', arg_dict[key])
+  sql_query = format_sql(sql_query, arg_dict)
   
   if '$' in sql_query:
     return "Error: Missing parameters"
 
   try:
-    execute_query(query)
+    res = execute_query(sql_query)
     
   except Exception as e:
     res = f"An error occured: {e}"

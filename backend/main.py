@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from database import execute_query
-from routers import circuits
+from database import make_query
+from routers import circuits, m1features
 
 app = FastAPI()
 
@@ -16,8 +16,9 @@ app.add_middleware(
 )
 
 app.include_router(circuits.router)
+app.include_router(m1features.router)
 
 @app.get("/")
 async def read_root():
-    result = execute_query('get_circuits.sql')
+    result = make_query('get_circuits.sql')
     return {"message": result}
