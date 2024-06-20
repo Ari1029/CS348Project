@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import defaultApi from '../api/default'
+import { Box } from '@mui/material';
 
 export const Home = () => {
   const [data, setData] = useState([0, 'temp']);
@@ -18,8 +19,8 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Data from the "circuits" relation</h1>
+    <Box sx={{p: 3}}>
+      <h1 style={{ marginTop: 0 }}>Data from the "circuits" relation</h1>
       {data !== null ? <div className="table-container">
         <table className="table">
           <thead>
@@ -38,7 +39,7 @@ export const Home = () => {
           </tbody>
         </table>
       </div> : "Loading..."}
-    </div>
+    </Box>
   );
 }
 
