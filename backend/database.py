@@ -31,6 +31,13 @@ def test_neon():
   print('PostgreSQL version:', version)
 
 def execute_query(query):
+  """
+  query: str
+
+  Executes the query string on the database
+  
+  returns the result of the query
+  """
   conn = use_conn()
   cursor = conn.cursor()
 
@@ -47,6 +54,13 @@ def execute_query(query):
     return res
   
 def make_query(query, arg_dict):
+  """
+  query: str
+  arg_dict: dict
+  
+  Places the values from arg_dict into the query string
+  returns execute query results
+  """
   with open('./queries/'+query, 'r') as sql_file:
     sql_query = sql_file.read()
 
@@ -57,8 +71,7 @@ def make_query(query, arg_dict):
     return "Error: Missing parameters"
 
   try:
-    execute_query(query)
-    
+    res = execute_query(query)
   except Exception as e:
     res = f"An error occured: {e}"
   finally:
