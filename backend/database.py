@@ -30,7 +30,7 @@ def test_neon():
   print('Current time:', time)
   print('PostgreSQL version:', version)
 
-def execute_query(query):
+def execute_query(query, *args):
   with open('./queries/'+query, 'r') as sql_file:
     sql_query = sql_file.read()
 
@@ -38,7 +38,7 @@ def execute_query(query):
   cursor = conn.cursor()
   
   try:
-    cursor.execute(sql_query)
+    cursor.execute(sql_query, args)
     conn.commit()
     res = cursor.fetchall()
   except Exception as e:

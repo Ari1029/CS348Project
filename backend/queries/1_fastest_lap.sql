@@ -2,9 +2,9 @@
 SELECT min(milliseconds)
 FROM laptimes l, races r, drivers d
 WHERE
-    r.name = 'Monaco Grand Prix' AND
-    r.year = 2023 AND
-    d.surname = 'Hamilton'AND
-    d.forename = 'Lewis' AND
+    r.name = %s AND
+    r.year = %s AND
+    d.surname = %s AND
+    d.forename = %s AND
     l.raceid = r.raceid AND 
     d.driverid = l.driverid
