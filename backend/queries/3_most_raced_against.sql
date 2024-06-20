@@ -1,15 +1,14 @@
--- WE HAVE driverid = 1 HARDCODED FOR NOW
 WITH racer_x_races AS (
   SELECT raceid
   FROM results
-  WHERE driverid = 1
+  WHERE driverid = ${driverid}
 ),
 
 race_participants AS (
   SELECT r1.raceid, results.driverid
   FROM racer_x_races r1, results
   WHERE  r1.raceid = results.raceid
-    AND results.driverid != 1
+    AND results.driverid != ${driverid}
 ),
 
 driver_race_counts AS (
