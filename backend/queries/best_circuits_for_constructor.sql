@@ -8,7 +8,7 @@ WITH constructor_wins AS (
     JOIN Constructors cons ON res.constructorId = cons.constructorId
     JOIN Circuits c ON r.circuitId = c.circuitId
     WHERE res.position = 1
-      AND cons.name = 'ConstructorName'
+      AND cons.name = ${constructor_name}
     GROUP BY r.circuitId, c.name
 ),
 

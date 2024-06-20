@@ -52,7 +52,7 @@ def execute_query(query):
     conn.close()
     return res
 
-def format_sql(template, args):
+def format_sql(template, args = {}):
   """
   Replaces placeholders in the SQL template with values from the args dictionary.
 
@@ -70,7 +70,7 @@ def format_sql(template, args):
 
   return formatted_sql
 
-def make_query(query, arg_dict = []):
+def make_query(query, arg_dict = {}):
   """
   Makes the query on the database; Only function our routers interact with
 
