@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from database import make_query
+from modules.database import make_query
 from routers import circuits, m1features
 
 app = FastAPI()
