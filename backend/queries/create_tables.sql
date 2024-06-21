@@ -10,7 +10,7 @@ CREATE TABLE Circuits(
   url VARCHAR(255)
 );
 
-CREATE TABLE IsConstructorResultOf(
+CREATE TABLE ConstructorResults(
   constructorResultsId INT NOT NULL PRIMARY KEY,
   raceId INT NOT NULL REFERENCES RACES(raceId),
   constructorId INT NOT NULL REFERENCES CONSTRUCTORS(constructorId),
@@ -18,7 +18,7 @@ CREATE TABLE IsConstructorResultOf(
   status VARCHAR(255)
 );
 
-CREATE TABLE HasConstructorStandingsOf(
+CREATE TABLE ConstructorStandings(
   constructorStandingsId INT NOT NULL PRIMARY KEY,
   raceId INT NOT NULL REFERENCES RACES(raceId),
   constructorId INT NOT NULL REFERENCES CONSTRUCTORS(constructorId),
@@ -36,7 +36,7 @@ CREATE TABLE Constructors(
   url VARCHAR(255)
 );
 
-CREATE TABLE HasDriverStandingOf(
+CREATE TABLE DriverStandings(
   driverStandingsId INT NOT NULL PRIMARY KEY,
   raceId INT NOT NULL REFERENCES RACES(raceId),
   driverId INT NOT NULL REFERENCES DRIVERS(driverId),
@@ -58,7 +58,7 @@ CREATE TABLE Drivers(
   url VARCHAR(255)
 );
 
-CREATE TABLE IsLapTimeOf(
+CREATE TABLE LapTimes(
   raceId INT NOT NULL REFERENCES RACES(raceId),
   driverId INT NOT NULL REFERENCES DRIVERS(driverId),
   lap INT,
@@ -79,7 +79,7 @@ CREATE TABLE PitStops(
   PRIMARY KEY (raceId, driverId, stop)
 );
 
-CREATE TABLE isQualifyingOf(
+CREATE TABLE Qualifying(
   qualifyId INT NOT NULL PRIMARY KEY,
   raceId INT NOT NULL REFERENCES RACES(raceId),
   driverId INT NOT NULL REFERENCES DRIVERS(driverId),
@@ -112,7 +112,7 @@ CREATE TABLE Races(
   sprint_time VARCHAR(255)
 );
 
-CREATE TABLE IsResultOf(
+CREATE TABLE Results(
   resultId INT NOT NULL PRIMARY KEY,
   raceId INT NOT NULL REFERENCES RACES(raceId),
   driverId INT NOT NULL REFERENCES DRIVERS(driverId),
@@ -152,7 +152,7 @@ CREATE TABLE SprintResults(
   statusId INT NOT NULL REFERENCES STATUS(statusId)
 );
 
-CREATE TABLE STATUS(
+CREATE TABLE Status(
   statusId INT NOT NULL PRIMARY KEY,
   status VARCHAR(255)
 );
