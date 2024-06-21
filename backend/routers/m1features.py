@@ -1,6 +1,6 @@
 import os
 from fastapi import APIRouter, Depends, HTTPException
-from database import make_query
+from modules.database import make_query
 
 router = APIRouter(
   prefix="/m1features",

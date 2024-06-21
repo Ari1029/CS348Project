@@ -1,4 +1,4 @@
-from database import use_conn
+from modules.database import use_conn
 
 def populate_table(table_name: str, csv_path: str):
   conn = use_conn()
