@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import defaultApi from '../api/default'
+import defaultApi from '../api/default';
 import { Box } from '@mui/material';
 
 export const Home = () => {
