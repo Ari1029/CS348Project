@@ -2,6 +2,7 @@ import os
 from fastapi import APIRouter, Depends, HTTPException
 from modules.database import make_query
 from models.fastest_lap_query import FastestLapQuery
+from models.best_circuits_for_constructor_query import BestCircuitsForConstructor
 
 router = APIRouter(
   prefix="/m2features",
@@ -21,9 +22,11 @@ async def fastest_lap(fastest_lap_query: FastestLapQuery):
     "message": res
   }
 
-@router.get("/best_circuits_for_constructor")
-async def best_circuits_for_constructor():
+@router.post("/best_circuits_for_constructor")
+async def best_circuits_for_constructor(best_circuits_for_constructor_query: BestCircuitsForConstructor):
   res = make_query('best_circuits_for_constructor.sql', {
-    'constructor_name': 'Ferrari'
+    'constructor_name': best_circuits_for_constructor_query.constructor_name
   })
-  return {"testing": "yoyo second feature! " + str(res)}
+  return {
+    "message": res
+  }
