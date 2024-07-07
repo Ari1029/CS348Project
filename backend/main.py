@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from modules.database import make_query
-from routers import circuits, m1features
+from routers import circuits, m1features, m2features
 
 app = FastAPI()
 
@@ -17,6 +17,7 @@ app.add_middleware(
 
 app.include_router(circuits.router)
 app.include_router(m1features.router)
+app.include_router(m2features.router)
 
 @app.get("/")
 async def read_root():
