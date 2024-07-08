@@ -1,6 +1,6 @@
 import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TablePagination, TableRow, TextField, Typography } from "@mui/material";
 import { getAvgPositionForRacers } from "api/F1Api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type propTypes = {
     averagePosition: any[],
@@ -16,6 +16,10 @@ export const AveragePosition = ({averagePosition, setAveragePosition} : propType
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
+
+    useEffect(() => { //QUERY ON MOUNT
+        submitQuery();
+    }, [])
 
     const submitQuery = async () => {
         const response = await getAvgPositionForRacers();
@@ -62,13 +66,6 @@ export const AveragePosition = ({averagePosition, setAveragePosition} : propType
                     </TableFooter>
                 </Table>
             </TableContainer>
-            <Button
-                sx={{ maxWidth: "400px" }}
-                variant="contained"
-                onClick={submitQuery}
-            >
-                Get Average Positions
-            </Button>
         </Box>
     )
 }
