@@ -11,18 +11,12 @@ function App() {
   axios.defaults.baseURL = "http://localhost:8000";
   return (
     <Box className="App">
-      <Topbar />
-      <Routes>
-        <Route path="/" element={ <Home/> } />
-        <Route path="/racers" element={ <Racers/> } />
-        <Route path="/constructors" element={ <Constructors/> } />
-      </Routes>
       <ThemeProvider theme={f1Theme}>
         <Topbar />
         <Routes>
           <Route path="/" element={ <Home/> } />
           <Route path="/racers" element={ <Racers/> } />
-          <Route path="/constructors" element={ <></> } />
+          <Route path="/constructors" element={ <Constructors/> } />
         </Routes>
       </ThemeProvider>
     </Box>
