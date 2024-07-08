@@ -4,6 +4,7 @@ import Topbar from "components/Topbar"
 import { Box, ThemeProvider } from "@mui/material"
 import axios from "axios"
 import Racers from "pages/Racers/Racers"
+import Constructors from "pages/Constructors/Constructors"
 import f1Theme from "styles/theme"
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={ <Home/> } />
           <Route path="/racers" element={ <Racers/> } />
-          <Route path="/constructors" element={ <></> } />
+          <Route path="/constructors" element={ <Constructors/> } />
         </Routes>
       </ThemeProvider>
     </Box>
