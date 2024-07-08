@@ -4,7 +4,7 @@ import FastestLap from './FastestLap';
 import f1Theme from 'styles/theme';
 import ConsecutiveWins from './ConsecutiveWins';
 
-export const Racers = () => {
+export const Drivers = () => {
   const [fastestLap, setFastestLap] = useState<number>(0);
   const [consecutiveWins, setConsecutiveWins] = useState([[0, 0]]);
 
@@ -18,9 +18,6 @@ export const Racers = () => {
         <Box>
           <Typography sx={{ fontSize: "32px", fontWeight: 600, mb: 2 }}>Most Raced Against</Typography>
         </Box>
-        <Box>
-          <Typography sx={{ fontSize: "32px", fontWeight: 600, mb: 2 }}>Consecutive Wins</Typography>
-        </Box>
         <Box sx={{ border: 1, borderRadius: 2, p: 2 }}>
           <Typography sx={{ fontSize: "32px", fontWeight: 600, mb: 2 }}>Consecutive Wins</Typography>
           <ConsecutiveWins consecutiveWins={consecutiveWins} setConsecutiveWins={setConsecutiveWins} />
@@ -30,4 +27,4 @@ export const Racers = () => {
   );
 }
 
-export default Racers;
+export default Drivers;

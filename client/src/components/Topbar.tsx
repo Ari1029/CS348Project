@@ -6,8 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '@emotion/react';
 import f1Theme from 'styles/theme';
 
-const pages = ['Home', 'Racers', 'Constructors'];
-const nav = ["/", "/racers", "/constructors"];
+const pages = ['Home', 'Drivers', 'Constructors'];
+const nav = ["/", "/drivers", "/constructors"];
 
 const Topbar = () => {
     const navigate = useNavigate();
