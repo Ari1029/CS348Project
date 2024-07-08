@@ -77,9 +77,9 @@ export const DriverPerformanceSummary = ({driverPerformanceSummary, setDriverPer
                 >
                     Submit
                 </Button>
-                <Typography sx={{ fontSize: "16px", fontWeight: 400 }}>
-                    {`Status: ${querySuccess ? "Success!" : "Failed"}`}
-                </Typography>
+                <small>
+                    {`Query Status: ${querySuccess ? "Success" : "Not Completed"}`}
+                </small>
             </Box>
             <TableContainer component={Paper}>
                 <Table>
