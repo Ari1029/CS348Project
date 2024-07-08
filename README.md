@@ -13,8 +13,8 @@ To run the application:
 ## C1.
 To run the database-driven application, follow the steps above. The sample database is on Neon and the application will automatically connect to the live server.
 
-There are current three pages in the web client: "Home", "Grand Prix", and "Racers" where you can find some tables of data. These pages will be updated to support dynamic queries for M2.
+There are current three pages in the web client: "Home", "Drivers", and "Constructors" where you can find the query interfaces, now working dynamically for Milestone 2.
 
 The "Home" screen:
 
-<img src="https://github.com/Ari1029/CS348Project/assets/75756358/1e15315d-5ff0-4029-9cf7-86531176ba78" alt="Home Screen" width="669"/>
+![image](https://github.com/Ari1029/CS348Project/assets/87958079/494c93a2-c9ce-42b8-98f2-5119d7afa403)
