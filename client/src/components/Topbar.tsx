@@ -25,7 +25,7 @@ const Topbar = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
 
-                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: 2 }}>
                     {pages.map((page, index) => (
                         <Button
                             key={page}
