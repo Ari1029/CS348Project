@@ -7,9 +7,11 @@ WITH RECURSIVE RecursiveWins (driverId, raceId, date, consecutive_wins) AS (
     FROM
         results r
         INNER JOIN races ra ON r.raceId = ra.raceId
+        INNER JOIN drivers d ON r.driverId = d.driverId
     WHERE
         r.position = 1
-        AND r.driverId = 30
+        AND d.forename = ${driver_forename}
+        AND d.surname = ${driver_surname}
     
     UNION ALL
     
@@ -24,7 +26,12 @@ WITH RECURSIVE RecursiveWins (driverId, raceId, date, consecutive_wins) AS (
         INNER JOIN RecursiveWins rw ON rw.driverId = r.driverId
         AND ra.date > rw.date
         AND r.position = 1
-        AND r.driverId = 30
+        AND rw.driverId = (
+            SELECT driverId
+            FROM drivers
+            WHERE forename = ${driver_forename}
+            AND surname = ${driver_surname}
+        )
         AND NOT EXISTS (
             SELECT 1
             FROM results r2
