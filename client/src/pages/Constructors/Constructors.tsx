@@ -10,7 +10,10 @@ export const Constructors = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await getBestCircuitForConstructor(constructorName);
+        const payload = {
+          "constructor_name": constructorName
+        }
+        const response = await getBestCircuitForConstructor(payload);
         console.log(response);
         setData(response["message"]);
       } catch (error) {
