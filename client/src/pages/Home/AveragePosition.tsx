@@ -40,9 +40,9 @@ export const AveragePosition = ({averagePosition, setAveragePosition} : propType
                         {averagePosition.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
                             <TableRow key={row[0] + " " + row[1]} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                 <TableCell component="th" scope="row">
-                                    {row[0]}
+                                    {row[1]} {row[2]}
                                 </TableCell>
-                                <TableCell align="right">{row[1]}</TableCell>
+                                <TableCell align="right">{Math.round(row[3] * 1000) / 1000}</TableCell>
                             </TableRow>
                         ))}
                         {averagePosition.length == 0 && (
