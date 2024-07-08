@@ -17,4 +17,5 @@ There are current three pages in the web client: "Home", "Drivers", and "Constru
 
 The "Home" screen:
 
-![image](https://github.com/Ari1029/CS348Project/assets/87958079/494c93a2-c9ce-42b8-98f2-5119d7afa403)
+![image](https://github.com/Ari1029/CS348Project/assets/87958079/463f6660-1986-4e53-8a75-a62382b6e23b)
+
