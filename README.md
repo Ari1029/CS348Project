@@ -11,4 +11,5 @@ To run the database-driven application, follow the steps below. The production d
 There are current three pages in the web client: "Home", "Drivers", and "Constructors" where you can find all six features using SQL queries, now working dynamically with the database for Milestone 2.
 
 The Home Screen:
-![image](https://github.com/Ari1029/CS348Project/assets/87958079/463f6660-1986-4e53-8a75-a62382b6e23b)
+![image](https://github.com/Ari1029/CS348Project/assets/87958079/01daf5a2-d0a6-4f29-9764-ecb0135f6195)
+
