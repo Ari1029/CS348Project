@@ -3,7 +3,8 @@ import {
   GetFastestLapPayload, 
   GetBestCircuitForConstructorPayload,
   GetMostRacedAgainstPayload,
-  GetConsecutiveWinsPayload
+  GetConsecutiveWinsPayload,
+  GetDriverPerformanceSummaryPayload
 } from './types';
 
 export const getFastestLap = async (payload: GetFastestLapPayload) => {
@@ -52,6 +53,15 @@ export const getConsecutiveWins = async (payload: GetConsecutiveWinsPayload) => 
 export const oldFastestLap = async () => {
   const response = await HTTP({
     url: '/m1features/fastest_lap',
+  });
+  return response.data;
+}
+
+export const getDriverPerformanceSummary = async (payload: GetDriverPerformanceSummaryPayload) => {
+  const response = await HTTP({
+    method: 'post',
+    url: '/m2features/driver_performance_summary',
+    data: payload,
   });
   return response.data;
 }

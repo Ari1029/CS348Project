@@ -20,14 +20,3 @@ GROUP BY
     d.surname
 ORDER BY
     total_points DESC;
-
-SELECT
-    *,
-    (wins * 100.0 / races_participated) AS win_percentage
-FROM
-    DriverPerformanceSummary
-WHERE
-    (wins * 100.0 / races_participated) >= 20
-    AND (wins * 100.0 / races_participated) <= 30
-ORDER BY
-    win_percentage DESC;

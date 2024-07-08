@@ -18,3 +18,8 @@ export interface GetConsecutiveWinsPayload {
   driver_surname: string;
   driver_forename: string;
 };
+
+export interface GetDriverPerformanceSummaryPayload {
+  lower_bound: number;
+  upper_bound: number;
+};

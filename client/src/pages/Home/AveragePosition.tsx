@@ -8,7 +8,7 @@ type propTypes = {
 }
 export const AveragePosition = ({averagePosition, setAveragePosition} : propTypes) => {
     const [page, setPage] = useState<number>(0);
-    const [rowsPerPage, setRowsPerPage] = useState<number>(10);
+    const [rowsPerPage, setRowsPerPage] = useState<number>(5);
     const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
         setPage(newPage);
     }
@@ -42,7 +42,7 @@ export const AveragePosition = ({averagePosition, setAveragePosition} : propType
                                 <TableCell component="th" scope="row">
                                     {row[0]}
                                 </TableCell>
-                                <TableCell align="right">{row[1]}</TableCell>
+                                <TableCell align="right">{parseFloat(row[1]).toFixed(2)}</TableCell>
                             </TableRow>
                         ))}
                         {averagePosition.length == 0 && (
@@ -60,6 +60,7 @@ export const AveragePosition = ({averagePosition, setAveragePosition} : propType
                                 page={page}
                                 onPageChange={handleChangePage}
                                 rowsPerPage={rowsPerPage}
+                                rowsPerPageOptions={[5, 10, 25, 50, 100]}
                                 onRowsPerPageChange={handleChangeRowsPerPage}
                             />
                         </TableRow>
