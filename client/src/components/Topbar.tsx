@@ -6,8 +6,8 @@ import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 
-const pages = ['Home', 'Grand Prix', 'Racers'];
-const nav = ["/", "/gp", "/racers"];
+const pages = ['Home', 'Racers', 'Constructors'];
+const nav = ["/", "/racers", "/constructors"];
 
 const Topbar = () => {
     const navigate = useNavigate();

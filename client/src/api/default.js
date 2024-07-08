@@ -2,7 +2,7 @@ import { HTTP } from '../http';
 
 const getDefault = async () => {
   const response = await HTTP({
-    url: '/',
+    url: '/fastest_lap',
   });
   return response.data;
 }
