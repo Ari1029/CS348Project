@@ -3,6 +3,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from modules.database import make_query
 from models.fastest_lap_query import FastestLapQuery
 from models.best_circuits_for_constructor_query import BestCircuitsForConstructor
+from models.most_raced_against_query import MostRacedAgainstQuery
 
 router = APIRouter(
   prefix="/m2features",
@@ -26,6 +27,23 @@ async def fastest_lap(fastest_lap_query: FastestLapQuery):
 async def best_circuits_for_constructor(best_circuits_for_constructor_query: BestCircuitsForConstructor):
   res = make_query('best_circuits_for_constructor.sql', {
     'constructor_name': best_circuits_for_constructor_query.constructor_name
+  })
+  return {
+    "message": res
+  }
+
+@router.get("/avg_pos_for_racer")
+async def avg_pos_for_racer():
+  res = make_query('avg_pos_for_racer.sql')
+  return {
+    "message": res
+  }
+
+@router.post("/most_raced_against")
+async def most_raced_against(most_raced_against_query: MostRacedAgainstQuery):
+  res = make_query('3_most_raced_against.sql', {
+    'driver_surname': most_raced_against_query.driver_surname,
+    'driver_forename': most_raced_against_query.driver_forename
   })
   return {
     "message": res

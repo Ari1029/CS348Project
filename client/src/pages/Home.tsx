@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
-import { fastestLap } from 'api/F1Api';
+import { oldFastestLap } from 'api/F1Api';
 
 export const Home = () => {
   const [data, setData] = useState([0, 'temp']);
@@ -8,7 +8,7 @@ export const Home = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fastestLap();
+        const response = await oldFastestLap();
         console.log(response);
         setData(response["message"]);
       } catch (error) {

@@ -1,5 +1,6 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState } from "react"
+import { getFastestLap } from "api/F1Api";
 
 type propTypes = {
     fastestLap: number,
@@ -18,8 +19,15 @@ export const FastestLap = ({fastestLap, setFastestLap} : propTypes) => {
         }
     }
 
-    const submitQuery = () => {
-
+    const submitQuery = async () => {
+        const payload = {
+            "race_name": raceName,
+            "race_year": raceYear,
+            "driver_surname": driverSurname,
+            "driver_forename": driverForename
+        }
+        const response = await getFastestLap(payload);
+        setFastestLap(response["message"]);
     }
 
     return (
@@ -63,6 +71,7 @@ export const FastestLap = ({fastestLap, setFastestLap} : propTypes) => {
             <Button
                 sx={{ maxWidth: "400px" }}
                 variant="contained"
+                onClick={submitQuery}
             >
                 Submit
             </Button>
