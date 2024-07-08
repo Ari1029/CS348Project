@@ -12,7 +12,7 @@ export const f1Theme = createTheme({
             default: '#f4f4f4', // Light grey background
         },
         text: {
-            primary: '#ffffff', // White text
+            primary: '#000000', // Black text
             secondary: '#ff0000', // Red text
         },
     },

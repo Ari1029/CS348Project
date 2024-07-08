@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import FastestLap from './FastestLap';
+import f1Theme from 'styles/theme';
 
 export const Racers = () => {
   const [fastestLap, setFastestLap] = useState<number>(0);

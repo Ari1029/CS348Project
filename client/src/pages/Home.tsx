@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import { oldFastestLap } from 'api/F1Api';
+import f1Theme from 'styles/theme';
 
 export const Home = () => {
   const [data, setData] = useState([0, 'temp']);
