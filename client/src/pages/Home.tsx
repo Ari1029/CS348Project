@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
-import { fastestLap } from 'api/F1Api';
+import { oldFastestLap } from 'api/F1Api';
+import m2featuresApi from '../api/m2features';
 
 export const Home = () => {
   const [data, setData] = useState([0, 'temp']);
@@ -8,7 +9,10 @@ export const Home = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fastestLap();
+        const response = await oldFastestLap();
+        const temp = await m2featuresApi.getAvgPositionForRacers();
+        console.log("????", temp)
+        // console.log(m2featuresApi.getAvgPositionForRacers())
         console.log(response);
         setData(response["message"]);
       } catch (error) {
