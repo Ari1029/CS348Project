@@ -67,7 +67,7 @@ export const AveragePosition = ({averagePosition, setAveragePosition} : propType
                 variant="contained"
                 onClick={submitQuery}
             >
-                Get poos poos
+                Get Average Positions
             </Button>
         </Box>
     )

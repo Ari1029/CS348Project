@@ -4,7 +4,7 @@ import { getBestCircuitForConstructor } from "api/F1Api";
 
 // type propTypes = {
 //     data: {String, number},
-//     setData: (pussy : number) => void
+//     setData: (varName : number) => void
 // }
 
 export const TopThreeCircuits = ({data, setData}) => {
@@ -16,7 +16,6 @@ export const TopThreeCircuits = ({data, setData}) => {
         }
         const response = await getBestCircuitForConstructor(payload);
         setData(response["message"]);
-        console.log(response)
     }
 
     return (
@@ -37,7 +36,7 @@ export const TopThreeCircuits = ({data, setData}) => {
             <ol>
                 {data.map(nameAndNumWins => (
                 <li key={nameAndNumWins[0]}>
-                    <p>{nameAndNumWins[0]}, {nameAndNumWins[1]} Wins</p>
+                    <div>{nameAndNumWins[0]}, {nameAndNumWins[1]} Wins</div>
                 </li>
                 ))}
             </ol>
