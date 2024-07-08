@@ -24,7 +24,8 @@ WITH RECURSIVE RecursiveWins (driverId, raceId, date, consecutive_wins) AS (
         results r
         INNER JOIN races ra ON r.raceId = ra.raceId
         INNER JOIN RecursiveWins rw ON rw.driverId = r.driverId
-        AND ra.date > rw.date
+    WHERE
+        ra.date > rw.date
         AND r.position = 1
         AND NOT EXISTS (
             SELECT 1
