@@ -34,6 +34,15 @@ export const getAvgPositionForRacers = async () => {
   return response.data;
 }
 
+export const getConsecutiveWins = async (payload) => {
+  const response = await HTTP({
+    method: 'post',
+    url: '/m2features/consecutive_wins',
+    data: payload,
+  });
+  return response.data;
+}
+
 export const oldFastestLap = async () => {
   const response = await HTTP({
     url: '/m1features/fastest_lap',
