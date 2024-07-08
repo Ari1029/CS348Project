@@ -21,7 +21,7 @@ const Topbar = () => {
         <AppBar position="static">
             <Box sx={{ maxWidth: '100%', px: 2 }}>
                 <Toolbar disableGutters>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: "1%" } }}>
                         {pages.map((page, index) => (
                             <Button
                                 key={page}

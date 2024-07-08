@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import Home from "pages/Home"
+import Home from "pages/Home/Home"
 import Topbar from "components/Topbar"
 import { Box, ThemeProvider } from "@mui/material"
 import axios from "axios"

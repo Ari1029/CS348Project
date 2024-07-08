@@ -16,10 +16,10 @@ export const Racers = () => {
           <FastestLap fastestLap={fastestLap} setFastestLap={setFastestLap} />
         </Box>
         <Box>
-            <h1>Average Position</h1>
+          <Typography sx={{ fontSize: "32px", fontWeight: 600, mb: 2 }}>Most Raced Against</Typography>
         </Box>
         <Box>
-            <h1>Most Raced Against</h1>
+          <Typography sx={{ fontSize: "32px", fontWeight: 600, mb: 2 }}>Consecutive Wins</Typography>
         </Box>
         <Box sx={{ border: 1, borderRadius: 2, p: 2 }}>
           <Typography sx={{ fontSize: "32px", fontWeight: 600, mb: 2 }}>Consecutive Wins</Typography>

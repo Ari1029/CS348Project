@@ -8,7 +8,7 @@ import { getBestCircuitForConstructor } from "api/F1Api";
 // }
 
 export const TopThreeCircuits = ({data, setData}) => {
-    const [constructorName, setConstructorName] = useState<string>("");
+    const [constructorName, setConstructorName] = useState<string>("Ferrari");
 
     const submitQuery = async () => {
         const payload = {
