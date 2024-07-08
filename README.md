@@ -1,4 +1,4 @@
-# CS348Project
+# CS348Project: Formula 1 SQL
 CS348 Web-based Applicaton Project
 
 To run the application:
@@ -18,4 +18,3 @@ There are current three pages in the web client: "Home", "Drivers", and "Constru
 The "Home" screen:
 
 ![image](https://github.com/Ari1029/CS348Project/assets/87958079/463f6660-1986-4e53-8a75-a62382b6e23b)
-
