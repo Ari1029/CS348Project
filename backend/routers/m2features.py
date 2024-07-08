@@ -4,6 +4,7 @@ from modules.database import make_query
 from models.fastest_lap_query import FastestLapQuery
 from models.best_circuits_for_constructor_query import BestCircuitsForConstructor
 from models.most_raced_against_query import MostRacedAgainstQuery
+from models.consecutive_wins_query import ConsecutiveWinsQuery
 
 router = APIRouter(
   prefix="/m2features",
@@ -44,6 +45,16 @@ async def most_raced_against(most_raced_against_query: MostRacedAgainstQuery):
   res = make_query('2_most_raced_against.sql', {
     'driver_surname': most_raced_against_query.driver_surname,
     'driver_forename': most_raced_against_query.driver_forename
+  })
+  return {
+    "message": res
+  }
+
+@router.post("/consecutive_wins")
+async def consecutive_wins(consecutive_wins_query: ConsecutiveWinsQuery):
+  res = make_query("6_consecutive_wins.sql", {
+    'driver_surname': consecutive_wins_query.driver_surname,
+    'driver_forename': consecutive_wins_query.driver_forename
   })
   return {
     "message": res
