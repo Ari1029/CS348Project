@@ -1,6 +1,12 @@
 import { HTTP } from '../http';
+import { 
+  GetFastestLapPayload, 
+  GetBestCircuitForConstructorPayload,
+  GetMostRacedAgainstPayload,
+  GetConsecutiveWinsPayload
+} from './types';
 
-export const getFastestLap = async (payload) => {
+export const getFastestLap = async (payload: GetFastestLapPayload) => {
   const response = await HTTP({
     method: 'post',
     url: '/m2features/fastest_lap',
@@ -9,7 +15,7 @@ export const getFastestLap = async (payload) => {
   return response.data;
 }
 
-export const getBestCircuitForConstructor = async (payload) => {
+export const getBestCircuitForConstructor = async (payload: GetBestCircuitForConstructorPayload) => {
   const response = await HTTP({
     method: 'post',
     url: '/m2features/best_circuits_for_constructor',
@@ -18,7 +24,7 @@ export const getBestCircuitForConstructor = async (payload) => {
   return response.data;
 }
 
-export const getMostRacedAgainst = async (payload) => {
+export const getMostRacedAgainst = async (payload: GetMostRacedAgainstPayload) => {
   const response = await HTTP({
     method: 'post',
     url: '/m2features/most_raced_against',
@@ -34,7 +40,7 @@ export const getAvgPositionForRacers = async () => {
   return response.data;
 }
 
-export const getConsecutiveWins = async (payload) => {
+export const getConsecutiveWins = async (payload: GetConsecutiveWinsPayload) => {
   const response = await HTTP({
     method: 'post',
     url: '/m2features/consecutive_wins',
