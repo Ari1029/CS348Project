@@ -20,7 +20,7 @@ const Topbar = () => {
 
     return (
         <AppBar position="static">
-            <Box sx={{ maxWidth: '100%', px: 2 }}>
+            <Box sx={{ maxWidth: '100%', px: 3 }}>
                 <Toolbar disableGutters>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: "1%" } }}>
                         {pages.map((page, index) => (
@@ -44,8 +44,8 @@ const Topbar = () => {
                         <Box
                             component="img"
                             sx={{
-                                height: 40,
-                                width: 445,
+                                height: 20,
+                                width: 222,
                                 justifySelf: "flex-end",
                                 marginLeft: "auto",
                                 alignSelf: "center",

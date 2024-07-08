@@ -11,7 +11,7 @@ import { useEffect } from "react"
 function App() {
   axios.defaults.baseURL = "http://localhost:8000";
   useEffect(() => {
-    document.title = "F1 App";
+    document.title = "Formula 1 SQL";
   }, []);
   return (
     <Box className="App">
