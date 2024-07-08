@@ -20,11 +20,11 @@ race_participants AS (
 
 driver_race_counts AS (
     SELECT r.driverid, COUNT(*) AS race_count
-    FROM results r
+    FROM race_participants r
     GROUP BY r.driverid
 )
 
-SELECT d.driverid, drc.race_count
+SELECT d.forename, d.surname,drc.race_count
 FROM driver_race_counts drc, drivers d
 WHERE drc.driverid = d.driverid
 ORDER BY drc.race_count DESC

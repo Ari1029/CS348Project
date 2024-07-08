@@ -33,6 +33,7 @@ export const TopThreeCircuits = ({data, setData}) => {
                 <small>Examples: Ferrari, McLaren, Mercedes, Red Bull</small>
             </Box>
             <Typography component={'span'} sx={{ fontSize: "24px", fontWeight: 600 }}>
+                Result: 
                 <ol>
                     {data.map(nameAndNumWins => (
                     <li key={nameAndNumWins[0]}>

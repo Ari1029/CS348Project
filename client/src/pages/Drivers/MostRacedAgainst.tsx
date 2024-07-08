@@ -1,25 +1,25 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState } from "react"
-import { getConsecutiveWins } from "api/F1Api";
+import { getMostRacedAgainst } from "api/F1Api";
 
 // type propTypes = {
 //     fastestLap: number,
 //     setFastestLap: (pussy : number) => void
 // }
-export const ConsecutiveWins = ({consecutiveWins, setConsecutiveWins}) => {
-    const [driverSurname, setDriverSurname] = useState<string>("Verstappen");
-    const [driverForename, setDriverForename] = useState<string>("Max");
+export const MostRacedAgainst = ({mostRacedAgainst, setMostRacedAgainst}) => {
+    const [driverSurname, setDriverSurname] = useState<string>("Alonso");
+    const [driverForename, setDriverForename] = useState<string>("Fernando");
 
     const submitQuery = async () => {
+        console.log(driverSurname, driverForename);
         const payload = {
             "driver_surname": driverSurname,
             "driver_forename": driverForename
         }
-        const response = await getConsecutiveWins(payload);
-        setConsecutiveWins(response["message"]);
+        const response = await getMostRacedAgainst(payload);
+        setMostRacedAgainst(response["message"]);
         console.log(response)
     }
-    console.log(consecutiveWins)
 
     return (
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -39,9 +39,16 @@ export const ConsecutiveWins = ({consecutiveWins, setConsecutiveWins}) => {
                     sx={{ width: "48%" }}
                 />
             </Box>
-            <small>Examples: Max Verstappen (query is recursive, may be slow)</small>
-            <Typography sx={{ fontSize: "24px", fontWeight: 600 }}>
-                {`Result: ${consecutiveWins[0][1]} Consecutive Wins`} 
+            <small>Examples: Fernando Alonso</small>
+            <Typography component={'span'} sx={{ fontSize: "24px", fontWeight: 600 }}>
+                Result: 
+                <ol>
+                    {mostRacedAgainst.map(item => (
+                    <li key={item[1]}>
+                        <div>{item[0]} {item[1]}, {item[2]} races together</div>
+                    </li>
+                    ))}
+                </ol>
             </Typography>
             <Button
                 sx={{ maxWidth: "400px" }}
@@ -54,4 +61,4 @@ export const ConsecutiveWins = ({consecutiveWins, setConsecutiveWins}) => {
     )
 }
 
-export default ConsecutiveWins;
+export default MostRacedAgainst;

@@ -51,22 +51,22 @@ export const FastestLap = ({fastestLap, setFastestLap} : propTypes) => {
             </Box>
             <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
                 <TextField
-                    value={driverSurname}
-                    onChange={(event) => setDriverSurname(event.target.value)}
-                    label="Driver Surname"
-                    variant="standard"
-                    sx={{ width: "48%" }}
-                />
-                <TextField
                     value={driverForename}
                     onChange={(event) => setDriverForename(event.target.value)}
                     label="Driver Forename"
                     variant="standard"
                     sx={{ width: "48%" }}
                 />
+                <TextField
+                    value={driverSurname}
+                    onChange={(event) => setDriverSurname(event.target.value)}
+                    label="Driver Surname"
+                    variant="standard"
+                    sx={{ width: "48%" }}
+                />
             </Box>
             <Typography sx={{ fontSize: "24px", fontWeight: 600 }}>
-                {`Result: ${fastestLap}`} 
+                {`Result: ${fastestLap/1000}`} Seconds 
             </Typography>
             <Button
                 sx={{ maxWidth: "400px" }}
