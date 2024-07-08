@@ -42,7 +42,7 @@ export const AveragePosition = ({averagePosition, setAveragePosition} : propType
                                 <TableCell component="th" scope="row">
                                     {row[1]} {row[2]}
                                 </TableCell>
-                                <TableCell align="right">{parseFloat(row[1]).toFixed(2)}</TableCell>
+                                <TableCell align="right">{parseFloat(row[3]).toFixed(2)}</TableCell>
                             </TableRow>
                         ))}
                         {averagePosition.length == 0 && (
