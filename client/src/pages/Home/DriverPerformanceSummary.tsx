@@ -56,7 +56,7 @@ export const DriverPerformanceSummary = ({driverPerformanceSummary, setDriverPer
                     value={lowerBound}
                     type="number"
                     onChange={(event) => onChangeLowerBound(event.target.value)}
-                    label="Lower Bound"
+                    label="Win % Lower Bound"
                     variant="standard"
                     sx={{ width: "48%" }}
                 />
@@ -64,7 +64,7 @@ export const DriverPerformanceSummary = ({driverPerformanceSummary, setDriverPer
                     value={upperBound}
                     type="number"
                     onChange={(event) => onChangeUpperBound(event.target.value)}
-                    label="UpperBound"
+                    label="Win % Upper Bound"
                     variant="standard"
                     sx={{ width: "48%" }}
                 />
