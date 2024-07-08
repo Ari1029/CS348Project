@@ -6,9 +6,13 @@ import axios from "axios"
 import Drivers from "pages/Drivers/Drivers"
 import Constructors from "pages/Constructors/Constructors"
 import f1Theme from "styles/theme"
+import { useEffect } from "react"
 
 function App() {
   axios.defaults.baseURL = "http://localhost:8000";
+  useEffect(() => {
+    document.title = "F1 App";
+  }, []);
   return (
     <Box className="App">
       <ThemeProvider theme={f1Theme}>

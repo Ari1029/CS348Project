@@ -10,6 +10,7 @@ const pages = ['Home', 'Drivers', 'Constructors'];
 const nav = ["/", "/drivers", "/constructors"];
 
 const Topbar = () => {
+    const f1Logo = require('../assets/f1_logo.png');
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -40,6 +41,18 @@ const Topbar = () => {
                                 {page}
                             </Button>
                         ))}
+                        <Box
+                            component="img"
+                            sx={{
+                                height: 40,
+                                width: 445,
+                                justifySelf: "flex-end",
+                                marginLeft: "auto",
+                                alignSelf: "center",
+                            }}
+                            alt="F1 Logo"
+                            src={f1Logo}
+                        />
                     </Box>
                 </Toolbar>
             </Box>
