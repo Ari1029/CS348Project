@@ -1,5 +1,5 @@
-# CS348Project: Formula 1 SQL
-CS348 Web-based Applicaton Project
+# CS 348 Project: Formula 1 SQL
+CS348 Web-based Applicaton Project by Aditya Keerthi, Aryan Sharma, Alex Zhu, Cheney Cai, Ryan Shen
 
 ## How to run the application:
 To run the database-driven application, follow the steps below. The production database is on Neon and the application will automatically connect to the live server.
@@ -12,4 +12,3 @@ There are current three pages in the web client: "Home", "Drivers", and "Constru
 
 The Home Screen:
 ![image](https://github.com/Ari1029/CS348Project/assets/87958079/01daf5a2-d0a6-4f29-9764-ecb0135f6195)
-
