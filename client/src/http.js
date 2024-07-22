@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const HTTP = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL: 'https://f1sql.onrender.com',
 });
