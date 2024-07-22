@@ -21,5 +21,5 @@ app.include_router(m2features.router)
 
 @app.get("/")
 async def read_root():
-    result = make_query('get_circuits.sql')
-    return {"message": result}
+    # result = make_query('get_circuits.sql')
+    return {"message": "hello root"}
