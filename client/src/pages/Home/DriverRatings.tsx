@@ -1,6 +1,6 @@
 import { Box, Button, Card, CardActions, CardContent, CardMedia, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import { getAvgPositionForRacers } from "api/F1Api";    // average position
+import { getAvgPositionForRacers, getDriverRating } from "api/F1Api";    // average position
 import { getDriverPerformanceSummary } from "api/F1Api"; // win percentage
 import AveragePosition from "pages/Rankings/AveragePosition";
 import Scorecard from "components/Scorecard";
@@ -23,8 +23,13 @@ export const DriverRatings = () => {
             "lower_bound": 0,
             "upper_bound": 100
         }
+        const payload1 = {
+            "driver_surname": "Lando",
+            "driver_forename": "Norris"
+        }
         const response = await getAvgPositionForRacers();
         const response2 = await getDriverPerformanceSummary(payload);
+        const response3 = await getDriverRating(payload1);
         setScorecardData({
             driverForename: driverForename,
             driverSurname: driverSurname,
@@ -35,6 +40,8 @@ export const DriverRatings = () => {
         
         console.log(response)
         console.log(response2)
+        console.log(response3);
+
     }
 
     return (

@@ -6,6 +6,7 @@ from models.best_circuits_for_constructor_query import BestCircuitsForConstructo
 from models.most_raced_against_query import MostRacedAgainstQuery
 from models.consecutive_wins_query import ConsecutiveWinsQuery
 from models.driver_performance_summary import DriverPerformanceSummaryQuery
+from models.driver_rating_query import DriverRatingQuery
 
 router = APIRouter(
   prefix="/m2features",
@@ -66,6 +67,16 @@ async def driver_performance_summary(driver_performance_summary_query: DriverPer
   res = make_query('5_driver_performance_summary_QUERY.sql', {
     'lower_bound': driver_performance_summary_query.lower_bound,
     'upper_bound': driver_performance_summary_query.upper_bound
+  })
+  return {
+    "message": res
+  }
+
+@router.post("/driver_rating")
+async def driver_rating(driver_rating_query: DriverRatingQuery):
+  res = make_query('driver_rating.sql', {
+    'driver_surname': driver_rating_query.driver_surname,
+    'driver_forename': driver_rating_query.driver_forename
   })
   return {
     "message": res

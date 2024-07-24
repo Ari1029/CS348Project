@@ -23,3 +23,8 @@ export interface GetDriverPerformanceSummaryPayload {
   lower_bound: number;
   upper_bound: number;
 };
+
+export interface GetDriverRatingPayload {
+  driver_surname: string;
+  driver_forename: string;
+};

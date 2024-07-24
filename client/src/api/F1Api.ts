@@ -4,7 +4,8 @@ import {
   GetBestCircuitForConstructorPayload,
   GetMostRacedAgainstPayload,
   GetConsecutiveWinsPayload,
-  GetDriverPerformanceSummaryPayload
+  GetDriverPerformanceSummaryPayload,
+  GetDriverRatingPayload
 } from './types';
 
 export const getFastestLap = async (payload: GetFastestLapPayload) => {
@@ -61,6 +62,15 @@ export const getDriverPerformanceSummary = async (payload: GetDriverPerformanceS
   const response = await HTTP({
     method: 'post',
     url: '/m2features/driver_performance_summary',
+    data: payload,
+  });
+  return response.data;
+}
+
+export const getDriverRating = async (payload: GetDriverRatingPayload) => {
+  const response = await HTTP({
+    method: 'post',
+    url: '/m2features/driver_rating',
     data: payload,
   });
   return response.data;
