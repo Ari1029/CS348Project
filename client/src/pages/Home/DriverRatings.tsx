@@ -1,47 +1,34 @@
 import { Box, Button, Card, CardActions, CardContent, CardMedia, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import { getAvgPositionForRacers, getDriverRating } from "api/F1Api";    // average position
-import { getDriverPerformanceSummary } from "api/F1Api"; // win percentage
-import AveragePosition from "pages/Rankings/AveragePosition";
+import { getDriverRating } from "api/F1Api";    // average position
 import Scorecard from "components/Scorecard";
 export const DriverRatings = () => {
     
-    const [driverSurname, setDriverSurname] = useState<string>("Norris");
-    const [driverForename, setDriverForename] = useState<string>("Lando");
+    const [driverSurname, setDriverSurname] = useState<string>("Verstappen");
+    const [driverForename, setDriverForename] = useState<string>("Max");
 
     const [showScorecard, setShowScorecard] = useState<boolean>(false);
 
     const [scorecardData, setScorecardData] = useState<any>({
         driverForename: "",
         driverSurname: "",
-        averagePosition: [],
-        driverPerformanceSummary: []
+        data: []
     });
 
     const submitQuery = async () => {
         const payload = {
-            "lower_bound": 0,
-            "upper_bound": 100
+            "driver_surname": driverSurname.charAt(0).toUpperCase() + driverSurname.slice(1),
+            "driver_forename": driverForename.charAt(0).toUpperCase() + driverForename.slice(1)
         }
-        const payload1 = {
-            "driver_surname": driverSurname,
-            "driver_forename": driverForename
-        }
-        const response = await getAvgPositionForRacers();
-        const response2 = await getDriverPerformanceSummary(payload);
-        const response3 = await getDriverRating(payload1);
+        const response = await getDriverRating(payload);
         setScorecardData({
             driverForename: driverForename,
             driverSurname: driverSurname,
-            averagePosition: response["message"],
-            driverPerformanceSummary: response2["message"]
+            data: response["message"][0]
         });
         setShowScorecard(true);
         
         console.log(response)
-        console.log(response2)
-        console.log(response3);
-
     }
 
     return (
@@ -61,7 +48,7 @@ export const DriverRatings = () => {
                     variant="standard"
                     sx={ {width: "400px"} }
                 />
-                <small>Examples: Lando Norris</small>
+                <small>Examples: Max Verstappen</small>
                 <Button
                     sx={{ maxWidth: "400px" }}
                     variant="contained"
@@ -76,8 +63,7 @@ export const DriverRatings = () => {
                 <Scorecard
                     driverForename={scorecardData.driverForename}
                     driverSurname={scorecardData.driverSurname}
-                    averagePosition={scorecardData.averagePosition}
-                    driverPerformanceSummary={scorecardData.driverPerformanceSummary}
+                    data={scorecardData.data}
                 />
             )}
         </Box>
