@@ -65,9 +65,6 @@ export const FastestLap = ({fastestLap, setFastestLap} : propTypes) => {
                     sx={{ width: "48%" }}
                 />
             </Box>
-            <Typography sx={{ fontSize: "24px", fontWeight: 600 }}>
-                {`Result: ${fastestLap/1000}`} Seconds 
-            </Typography>
             <Button
                 sx={{ maxWidth: "400px" }}
                 variant="contained"
@@ -75,6 +72,9 @@ export const FastestLap = ({fastestLap, setFastestLap} : propTypes) => {
             >
                 Submit
             </Button>
+            <Typography sx={{ fontSize: "24px", fontWeight: 600 }}>
+                {`Result: ${fastestLap/1000}`} Seconds 
+            </Typography>
         </Box>
     )
 }

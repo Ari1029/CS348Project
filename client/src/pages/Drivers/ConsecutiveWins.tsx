@@ -36,9 +36,6 @@ export const ConsecutiveWins = ({consecutiveWins, setConsecutiveWins}) => {
                 />
             </Box>
             <small>Examples: Max Verstappen (query is recursive, may be slow)</small>
-            <Typography sx={{ fontSize: "24px", fontWeight: 600 }}>
-                {`Result: ${consecutiveWins[0][1]} Consecutive Wins`} 
-            </Typography>
             <Button
                 sx={{ maxWidth: "400px" }}
                 variant="contained"
@@ -46,6 +43,9 @@ export const ConsecutiveWins = ({consecutiveWins, setConsecutiveWins}) => {
             >
                 Submit
             </Button>
+            <Typography sx={{ fontSize: "24px", fontWeight: 600 }}>
+                {`Result: ${consecutiveWins[0][1]} Consecutive Wins`} 
+            </Typography>
         </Box>
     )
 }

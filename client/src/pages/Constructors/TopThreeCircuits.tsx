@@ -32,6 +32,13 @@ export const TopThreeCircuits = ({data, setData}) => {
             <Box>
                 <small>Examples: Ferrari, McLaren, Mercedes, Red Bull</small>
             </Box>
+            <Button
+                sx={{ maxWidth: "400px" }}
+                variant="contained"
+                onClick={submitQuery}
+            >
+                Submit
+            </Button>
             <Typography component={'span'} sx={{ fontSize: "24px", fontWeight: 600 }}>
                 Result: 
                 <ol>
@@ -42,13 +49,6 @@ export const TopThreeCircuits = ({data, setData}) => {
                     ))}
                 </ol>
             </Typography>
-            <Button
-                sx={{ maxWidth: "400px" }}
-                variant="contained"
-                onClick={submitQuery}
-            >
-                Submit
-            </Button>
         </Box>
     )
 }

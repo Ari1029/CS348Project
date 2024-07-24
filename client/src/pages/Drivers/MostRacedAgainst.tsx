@@ -36,6 +36,13 @@ export const MostRacedAgainst = ({mostRacedAgainst, setMostRacedAgainst}) => {
                 />
             </Box>
             <small>Examples: Fernando Alonso</small>
+            <Button
+                sx={{ maxWidth: "400px" }}
+                variant="contained"
+                onClick={submitQuery}
+            >
+                Submit
+            </Button>
             <Typography component={'span'} sx={{ fontSize: "24px", fontWeight: 600 }}>
                 Result: 
                 <ol>
@@ -46,13 +53,6 @@ export const MostRacedAgainst = ({mostRacedAgainst, setMostRacedAgainst}) => {
                     ))}
                 </ol>
             </Typography>
-            <Button
-                sx={{ maxWidth: "400px" }}
-                variant="contained"
-                onClick={submitQuery}
-            >
-                Submit
-            </Button>
         </Box>
     )
 }
