@@ -24,8 +24,8 @@ export const DriverRatings = () => {
             "upper_bound": 100
         }
         const payload1 = {
-            "driver_surname": "Lando",
-            "driver_forename": "Norris"
+            "driver_surname": driverSurname,
+            "driver_forename": driverForename
         }
         const response = await getAvgPositionForRacers();
         const response2 = await getDriverPerformanceSummary(payload);
