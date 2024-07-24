@@ -56,7 +56,7 @@ export const Scorecard = ({driverForename, driverSurname, data}) => {
             <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
                 {/* RESULT */}
                 <Paper elevation={12}>
-                    <Card sx={{ maxWidth: 400 }}>
+                    <Card sx={{ maxWidth: 400 , border: 5, borderColor: "white"}}>
                         <CardMedia
                             component="img"
                             sx={{ height: 400 }}
