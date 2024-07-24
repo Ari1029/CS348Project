@@ -20,5 +20,5 @@ JOIN
 JOIN
   average_pos_racer a ON a.driverid = d.driverid
 WHERE
-  res.forename = ${driver_surname}
-  AND res.surname = ${driver_forename};
+  res.forename = ${driver_forename}
+  AND res.surname = ${driver_surname};
