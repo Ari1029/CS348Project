@@ -6,8 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '@emotion/react';
 import f1Theme from 'styles/theme';
 
-const pages = ['Home', 'Drivers', 'Constructors'];
-const nav = ["/", "/drivers", "/constructors"];
+const pages = ['Home', 'Rankings', 'Drivers', 'Constructors'];
+const nav = ["/", "/rankings", "/drivers", "/constructors"];
 
 const Topbar = () => {
     const f1Logo = require('../assets/f1_logo.png');

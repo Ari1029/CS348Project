@@ -2,10 +2,6 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState } from "react"
 import { getMostRacedAgainst } from "api/F1Api";
 
-// type propTypes = {
-//     fastestLap: number,
-//     setFastestLap: (pussy : number) => void
-// }
 export const MostRacedAgainst = ({mostRacedAgainst, setMostRacedAgainst}) => {
     const [driverSurname, setDriverSurname] = useState<string>("Alonso");
     const [driverForename, setDriverForename] = useState<string>("Fernando");

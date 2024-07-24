@@ -2,10 +2,6 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState } from "react"
 import { getConsecutiveWins } from "api/F1Api";
 
-// type propTypes = {
-//     fastestLap: number,
-//     setFastestLap: (pussy : number) => void
-// }
 export const ConsecutiveWins = ({consecutiveWins, setConsecutiveWins}) => {
     const [driverSurname, setDriverSurname] = useState<string>("Verstappen");
     const [driverForename, setDriverForename] = useState<string>("Max");

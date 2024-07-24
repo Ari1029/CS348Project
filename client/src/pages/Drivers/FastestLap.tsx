@@ -4,7 +4,7 @@ import { getFastestLap } from "api/F1Api";
 
 type propTypes = {
     fastestLap: number,
-    setFastestLap: (pussy : number) => void
+    setFastestLap: (lap : number) => void
 }
 export const FastestLap = ({fastestLap, setFastestLap} : propTypes) => {
     const [raceName, setRaceName] = useState<string>("Monaco Grand Prix");
