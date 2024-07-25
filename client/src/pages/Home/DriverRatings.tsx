@@ -2,7 +2,7 @@ import { Box, Button, TextField, Autocomplete } from "@mui/material";
 import { useState } from "react";
 import { getDriverRating } from "api/F1Api";
 import Scorecard from "components/Scorecard";
-import { drivers2 } from 'data'; // Import from data file
+import { drivers } from 'data'; // Import from data file
 
 export const DriverRatings = () => {
     const [driverName, setDriverName] = useState("Max Verstappen");
@@ -20,8 +20,8 @@ export const DriverRatings = () => {
         let driverSurname = driverName.split(' ')[1];
 
         const payload = {
-            driver_surname: driverSurname.charAt(0).toUpperCase() + driverSurname.slice(1),
-            driver_forename: driverForename.charAt(0).toUpperCase() + driverForename.slice(1)
+            "driver_surname": driverSurname.charAt(0).toUpperCase() + driverSurname.slice(1),
+            "driver_forename": driverForename.charAt(0).toUpperCase() + driverForename.slice(1)
         }
         const response = await getDriverRating(payload);
         setScorecardData({
@@ -37,7 +37,7 @@ export const DriverRatings = () => {
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                 <Autocomplete
                     freeSolo
-                    options={drivers2}
+                    options={drivers}
                     value={driverName}
                     onInputChange={(event, newValue) => {
                         setDriverName(newValue);

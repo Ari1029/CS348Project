@@ -4,14 +4,18 @@ import { getMostRacedAgainst } from "api/F1Api";
 import { drivers } from 'data'; // Import from data file
 
 export const MostRacedAgainst = ({mostRacedAgainst, setMostRacedAgainst}) => {
-    const [driverSurname, setDriverSurname] = useState<string>("Alonso");
-    const [driverForename, setDriverForename] = useState<string>("Fernando");
+    const [driverName, setDriverName] = useState("Fernando Alonso");
 
     const submitQuery = async () => {
+
+        if(driverName.split(' ').length != 2) { return; }
+        let driverForename = driverName.split(' ')[0];
+        let driverSurname = driverName.split(' ')[1];
+
         console.log(driverSurname, driverForename);
         const payload = {
-            "driver_surname": driverSurname,
-            "driver_forename": driverForename
+            "driver_surname": driverSurname.charAt(0).toUpperCase() + driverSurname.slice(1),
+            "driver_forename": driverForename.charAt(0).toUpperCase() + driverForename.slice(1)
         }
         const response = await getMostRacedAgainst(payload);
         setMostRacedAgainst(response["message"]);
@@ -23,35 +27,14 @@ export const MostRacedAgainst = ({mostRacedAgainst, setMostRacedAgainst}) => {
             <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
                 <Autocomplete
                     freeSolo
-                    options={drivers.map(option => option.forename)}
-                    value={driverForename}
-                    onChange={(event, newValue) => {
-                        setDriverForename(newValue);
-                        const matchedDriver = drivers.find(driver => driver.forename === newValue);
-                        setDriverSurname(matchedDriver ? matchedDriver.surname : "");
+                    options={drivers}
+                    value={driverName}
+                    onInputChange={(event, newValue) => {
+                        setDriverName(newValue);
                     }}
-                    onFocus={() => {
-                        setDriverForename("");
-                        setDriverSurname("");
-                    }}
-                    renderInput={(params) => <TextField {...params} label="Driver Forename" variant="standard" />}
-                    sx={{ width: "48%" }}
-                />
-                <Autocomplete
-                    freeSolo
-                    options={drivers.map(option => option.surname)}
-                    value={driverSurname}
-                    onChange={(event, newValue) => {
-                        setDriverSurname(newValue);
-                        const matchedDriver = drivers.find(driver => driver.surname === newValue);
-                        setDriverForename(matchedDriver ? matchedDriver.forename : "");
-                    }}
-                    onFocus={() => {
-                        setDriverForename("");
-                        setDriverSurname("");
-                    }}
-                    renderInput={(params) => <TextField {...params} label="Driver Surname" variant="standard" />}
-                    sx={{ width: "48%" }}
+                    renderInput={(params) => <TextField {...params} label="Driver Name" variant="standard" error={driverName.split(' ').length != 2} helperText={driverName.split(' ').length != 2 ? "Invalid input" : ""}/>}
+                    sx={{ width: "400px" }}
+                    
                 />
             </Box>
             <small>Examples: Fernando Alonso</small>

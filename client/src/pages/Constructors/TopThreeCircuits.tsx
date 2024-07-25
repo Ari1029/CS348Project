@@ -9,7 +9,7 @@ export const TopThreeCircuits = ({ data, setData }) => {
     const submitQuery = async () => {
         if (!constructorName) return; // Prevent calling the API without a constructor name
         const payload = {
-            "constructor_name": constructorName
+            "constructor_name": constructorName.charAt(0).toUpperCase() + constructorName.slice(1)
         };
         try {
             const response = await getBestCircuitForConstructor(payload);
@@ -26,7 +26,7 @@ export const TopThreeCircuits = ({ data, setData }) => {
                     freeSolo
                     options={constructors}
                     value={constructorName}
-                    onChange={(event, newValue) => {
+                    onInputChange={(event, newValue) => {
                         setConstructorName(newValue);
                     }}
                     renderInput={(params) => <TextField {...params} label="Constructor Name" variant="standard" />}
