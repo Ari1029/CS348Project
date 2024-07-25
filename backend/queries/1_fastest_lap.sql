@@ -1,4 +1,4 @@
--- EXAMPLE: WE HAVE r.name = 'Monaco Grand Prix', r.year = '2023', d.surname = 'Hamilton', d.forename = 'Lewis' HARDCODED FOR NOW
+-- EXAMPLE: WE HAVE r.name = 'Monaco Grand Prix', r.year = '2023', d.surname = 'Hamilton', d.forename = 'Lewis' 
 SELECT min(milliseconds)
 FROM laptimes l, races r, drivers d
 WHERE
