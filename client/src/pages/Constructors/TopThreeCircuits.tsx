@@ -4,7 +4,7 @@ import { getBestCircuitForConstructor } from "api/F1Api";
 import { constructors } from 'data'; 
 
 export const TopThreeCircuits = ({ data, setData }) => {
-    const [constructorName, setConstructorName] = useState<string>("");
+    const [constructorName, setConstructorName] = useState<string>("Ferrari");
 
     const submitQuery = async () => {
         if (!constructorName) return; // Prevent calling the API without a constructor name

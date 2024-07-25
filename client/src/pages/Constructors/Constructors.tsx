@@ -4,7 +4,7 @@ import { getBestCircuitForConstructor } from 'api/F1Api';
 import TopThreeCircuits from './TopThreeCircuits';
 
 export const Constructors = () => {
-  const [constructorName, setConstructorName] = useState<string>("Ferrari");
+  const [constructorName, setConstructorName] = useState<string>("");
   const [data, setData] = useState([]);
 
   useEffect(() => {

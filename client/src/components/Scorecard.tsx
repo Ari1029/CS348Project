@@ -18,10 +18,8 @@ export const Scorecard = ({driverForename, driverSurname, data}) => {
         imgDriverForename = "Generic";
         imgDriverSurname = "F1";
     }
-    console.log(imgDriverForename, imgDriverSurname);
-    console.log(driverForename, driverSurname);
-    // HANDLE DATA
 
+    // HANDLE DATA
     let nationality = "";
     let winRate = 0;
     let avgPos = 0;
