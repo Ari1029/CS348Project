@@ -1,4 +1,6 @@
 import os
+from typing import List, Dict, Tuple
+from pydantic import BaseModel
 from fastapi import APIRouter, Depends, HTTPException
 from modules.database import make_query
 from models.fastest_lap_query import FastestLapQuery
@@ -14,25 +16,65 @@ router = APIRouter(
   responses={404: {"description": "Not found"}},
 )
 
+class CacheEntry:
+    def __init__(self, key: Tuple[str, str], value: str):
+        self.key = key
+        self.value = value
+
+max_cache_size = 10
+
+def manage_cache(cache: List[CacheEntry], cache_key: Tuple[str, str], query:str, query_params) -> Tuple[str, bool]:
+    # Check if the result is already in the cache
+    for entry in cache:
+        if entry.key == cache_key:
+            # Move the entry to the front
+            cache.remove(entry)
+            cache.insert(0, entry)
+            return entry.value, True
+
+    # If not in cache, query the database
+    res = make_query(query, query_params)
+
+    # Store the result in the cache
+    new_entry = CacheEntry(cache_key, res)
+    cache.insert(0, new_entry)
+
+    # Ensure the cache does not exceed the maximum size
+    if len(cache) > max_cache_size:
+        cache.pop()
+
+    return res, False
+
+# Initialize the MTF cache list
+consecutive_wins_cache: List[CacheEntry] = []
+fastest_lap_cache: List[CacheEntry] = []
+best_circuits_for_constructor_cache: List[CacheEntry] = []
+most_raced_against_cache: List[CacheEntry] = []
+
 @router.post("/fastest_lap")
 async def fastest_lap(fastest_lap_query: FastestLapQuery):
-  res = make_query('1_fastest_lap.sql', {
+  cache_key = (fastest_lap_query.race_name, fastest_lap_query.race_year, fastest_lap_query.driver_surname, fastest_lap_query.driver_forename)
+  query_params = {
     'race_name': fastest_lap_query.race_name,
     'race_year': fastest_lap_query.race_year,
     'driver_surname': fastest_lap_query.driver_surname,
     'driver_forename': fastest_lap_query.driver_forename
-  })
+  }
+  res, from_cache = manage_cache(fastest_lap_cache, cache_key, '1_fastest_lap.sql', query_params)
+  
   return {
-    "message": res
+    "message": res, "from_cache": from_cache
   }
 
 @router.post("/best_circuits_for_constructor")
 async def best_circuits_for_constructor(best_circuits_for_constructor_query: BestCircuitsForConstructor):
-  res = make_query('4_best_circuits_for_constructor.sql', {
+  cache_key = (best_circuits_for_constructor_query.constructor_name)
+  query_params = {
     'constructor_name': best_circuits_for_constructor_query.constructor_name
-  })
+  }
+  res, from_cache = manage_cache(best_circuits_for_constructor_cache, cache_key, '4_best_circuits_for_constructor.sql', query_params)
   return {
-    "message": res
+    "message": res, "from_cache": from_cache
   }
 
 @router.get("/avg_pos_for_racer")
@@ -44,23 +86,26 @@ async def avg_pos_for_racer():
 
 @router.post("/most_raced_against")
 async def most_raced_against(most_raced_against_query: MostRacedAgainstQuery):
-  res = make_query('2_most_raced_against.sql', {
+  cache_key = (most_raced_against_query.driver_surname, most_raced_against_query.driver_forename)
+  query_params = {
     'driver_surname': most_raced_against_query.driver_surname,
     'driver_forename': most_raced_against_query.driver_forename
-  })
+  }
+  res, from_cache = manage_cache(most_raced_against_cache, cache_key, '2_most_raced_against.sql', query_params)
   return {
-    "message": res
+    "message": res, "from_cache": from_cache
   }
 
 @router.post("/consecutive_wins")
 async def consecutive_wins(consecutive_wins_query: ConsecutiveWinsQuery):
-  res = make_query("6_consecutive_wins.sql", {
-    'driver_surname': consecutive_wins_query.driver_surname,
-    'driver_forename': consecutive_wins_query.driver_forename
-  })
-  return {
-    "message": res
-  }
+    cache_key = (consecutive_wins_query.driver_surname, consecutive_wins_query.driver_forename)
+    query_params = {
+        'driver_surname': consecutive_wins_query.driver_surname,
+        'driver_forename': consecutive_wins_query.driver_forename
+    }
+    res, from_cache = manage_cache(consecutive_wins_cache, cache_key, '6_consecutive_wins.sql', query_params)
+    
+    return {"message": res, "from_cache": from_cache}
 
 @router.post("/driver_performance_summary")
 async def driver_performance_summary(driver_performance_summary_query: DriverPerformanceSummaryQuery):
