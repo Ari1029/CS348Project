@@ -1,4 +1,5 @@
 import { Box, Paper, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import "./cardShine.css";
 
 export const Scorecard = ({driverForename, driverSurname, data}) => {
     // HANDLE IMAGES
@@ -39,7 +40,9 @@ export const Scorecard = ({driverForename, driverSurname, data}) => {
 
     if (Array.isArray(data)) {
         return (
-            <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
+            <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }} className="card active interacting card__shine">
+            <Box className="card__translater" >
+            <Box className="card__rotator">
                 {/* RESULT */}
                 <Paper elevation={12}>
                     <Card sx={{ maxWidth: 400 , border: 5, borderColor: "white"}}>
@@ -84,6 +87,8 @@ export const Scorecard = ({driverForename, driverSurname, data}) => {
                         </CardContent>
                     </Card>
                 </Paper>
+            </Box>
+            </Box>
             </Box>
         )
     } else {

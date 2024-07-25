@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Autocomplete } from "@mui/material";
+import { Box, Button, TextField, Autocomplete, Typography } from "@mui/material";
 import { useState } from "react";
 import { getDriverRating } from "api/F1Api";
 import Scorecard from "components/Scorecard";
@@ -33,37 +33,43 @@ export const DriverRatings = () => {
     }
 
     return (
-        <Box sx={{ display: "flex", flexDirection: "row", gap: 4 }}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                <Autocomplete
-                    freeSolo
-                    options={drivers2}
-                    value={driverName}
-                    onInputChange={(event, newValue) => {
-                        setDriverName(newValue);
-                    }}
-                    renderInput={(params) => <TextField {...params} label="Driver Name" variant="standard" error={driverName.split(' ').length != 2} helperText={driverName.split(' ').length != 2 ? "Invalid input" : ""}/>}
-                    sx={{ width: "400px" }}
-                    
-                />
-                <Button
-                    sx={{ maxWidth: "400px" }}
-                    variant="contained"
-                    onClick={submitQuery}
-                >
-                    Submit
-                </Button>
+        <>
+            <Box sx={{ display: "flex", flexDirection: "row", gap: 4 }}>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                    <Box>
+                        <Typography fontStyle="italic">Special Feature</Typography>
+                        <Typography sx={{ fontSize: "32px", fontWeight: 600 }}>Driver Ratings</Typography>
+                    </Box>
+                    <Autocomplete
+                        freeSolo
+                        options={drivers2}
+                        value={driverName}
+                        onInputChange={(event, newValue) => {
+                            setDriverName(newValue);
+                        }}
+                        renderInput={(params) => <TextField {...params} label="Driver Name" variant="standard" error={driverName.split(' ').length != 2} helperText={driverName.split(' ').length != 2 ? "Invalid input" : ""}/>}
+                        sx={{ width: "400px" }}
+                        
+                    />
+                    <Button
+                        sx={{ maxWidth: "400px" }}
+                        variant="contained"
+                        onClick={submitQuery}
+                    >
+                        Submit
+                    </Button>
+                </Box>
+                
+                {/* RESULT */}
+                {showScorecard && (
+                    <Scorecard
+                        driverForename={scorecardData.driverForename}
+                        driverSurname={scorecardData.driverSurname}
+                        data={scorecardData.data}
+                    />
+                )}
             </Box>
-            
-            {/* RESULT */}
-            {showScorecard && (
-                <Scorecard
-                    driverForename={scorecardData.driverForename}
-                    driverSurname={scorecardData.driverSurname}
-                    data={scorecardData.data}
-                />
-            )}
-        </Box>
+        </>
     )
 }
 
