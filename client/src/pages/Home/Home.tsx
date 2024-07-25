@@ -35,8 +35,6 @@ export const Home = () => {
         </Typography>
         <Typography variant="h6" style={{ color: querySuccess ? "green" : "orange" }}>{querySuccess ? "🟢 Backend Status: Online" : "🟠 Backend Status: Offline (starting...)"}</Typography>
         <Box sx={{ border: 1, borderRadius: 2, p: 2 }}>
-          <Typography fontStyle="italic">Special Feature</Typography>
-          <Typography sx={{ fontSize: "32px", fontWeight: 600, mb: 2 }}>Driver Ratings</Typography>
           <DriverRatings/>
         </Box>
       </Box>

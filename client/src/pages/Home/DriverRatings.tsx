@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Autocomplete } from "@mui/material";
+import { Box, Button, TextField, Autocomplete, Typography } from "@mui/material";
 import { useState } from "react";
 import { getDriverRating } from "api/F1Api";
 import Scorecard from "components/Scorecard";
@@ -35,6 +35,10 @@ export const DriverRatings = () => {
     return (
         <Box sx={{ display: "flex", flexDirection: "row", gap: 4 }}>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Box>
+                    <Typography fontStyle="italic">Special Feature</Typography>
+                    <Typography sx={{ fontSize: "32px", fontWeight: 600 }}>Driver Ratings</Typography>
+                </Box>
                 <Autocomplete
                     freeSolo
                     options={drivers}
@@ -54,7 +58,7 @@ export const DriverRatings = () => {
                     Submit
                 </Button>
             </Box>
-            
+
             {/* RESULT */}
             {showScorecard && (
                 <Scorecard
