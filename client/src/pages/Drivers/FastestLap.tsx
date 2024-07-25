@@ -11,8 +11,7 @@ type propTypes = {
 export const FastestLap = ({fastestLap, setFastestLap}: propTypes) => {
     const [raceName, setRaceName] = useState<string>("Monaco Grand Prix");
     const [raceYear, setRaceYear] = useState<number>(2023);
-    const [driverSurname, setDriverSurname] = useState<string>("Hamilton");
-    const [driverForename, setDriverForename] = useState<string>("Lewis");
+    const [driverName, setDriverName] = useState("Lewis Hamilton");
 
     const onChangeRaceYear = (newVal: string) => {
         const newNum = parseInt(newVal);
@@ -22,11 +21,16 @@ export const FastestLap = ({fastestLap, setFastestLap}: propTypes) => {
     }
 
     const submitQuery = async () => {
+
+        if(driverName.split(' ').length != 2) { return; }
+        let driverForename = driverName.split(' ')[0];
+        let driverSurname = driverName.split(' ')[1];
+
         const payload = {
             "race_name": raceName,
             "race_year": raceYear,
-            "driver_surname": driverSurname,
-            "driver_forename": driverForename
+            "driver_surname": driverSurname.charAt(0).toUpperCase() + driverSurname.slice(1),
+            "driver_forename": driverForename.charAt(0).toUpperCase() + driverForename.slice(1)
         }
         const response = await getFastestLap(payload);
         setFastestLap(response["message"]);
@@ -41,9 +45,6 @@ export const FastestLap = ({fastestLap, setFastestLap}: propTypes) => {
                     value={raceName}
                     onChange={(event, newValue) => {
                         setRaceName(newValue);
-                    }}
-                    onFocus={() => {
-                        setRaceName(""); // Reset race name on focus
                     }}
                     renderInput={(params) => <TextField {...params} label="Race Name" variant="standard" />}
                     sx={{ width: "48%" }}
@@ -60,35 +61,14 @@ export const FastestLap = ({fastestLap, setFastestLap}: propTypes) => {
             <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
                 <Autocomplete
                     freeSolo
-                    options={drivers.map(option => option.forename)}
-                    value={driverForename}
-                    onChange={(event, newValue) => {
-                        setDriverForename(newValue);
-                        const matchedDriver = drivers.find(driver => driver.forename === newValue);
-                        setDriverSurname(matchedDriver ? matchedDriver.surname : "");
+                    options={drivers}
+                    value={driverName}
+                    onInputChange={(event, newValue) => {
+                        setDriverName(newValue);
                     }}
-                    onFocus={() => {
-                        setDriverForename("");
-                        setDriverSurname("");
-                    }}
-                    renderInput={(params) => <TextField {...params} label="Driver Forename" variant="standard" />}
-                    sx={{ width: "48%" }}
-                />
-                <Autocomplete
-                    freeSolo
-                    options={drivers.map(option => option.surname)}
-                    value={driverSurname}
-                    onChange={(event, newValue) => {
-                        setDriverSurname(newValue);
-                        const matchedDriver = drivers.find(driver => driver.surname === newValue);
-                        setDriverForename(matchedDriver ? matchedDriver.forename : "");
-                    }}
-                    onFocus={() => {
-                        setDriverForename("");
-                        setDriverSurname("");
-                    }}
-                    renderInput={(params) => <TextField {...params} label="Driver Surname" variant="standard" />}
-                    sx={{ width: "48%" }}
+                    renderInput={(params) => <TextField {...params} label="Driver Name" variant="standard" error={driverName.split(' ').length != 2} helperText={driverName.split(' ').length != 2 ? "Invalid input" : ""}/>}
+                    sx={{ width: "400px" }}
+                    
                 />
             </Box>
             <small>Examples: Monaco Grand Prix, Lewis Hamilton</small>
