@@ -19,7 +19,7 @@ export const Scorecard = ({driverForename, driverSurname, data}) => {
         imgDriverSurname = "F1";
     }
     console.log(imgDriverForename, imgDriverSurname);
-        
+    console.log(driverForename, driverSurname);
     // HANDLE DATA
 
     let nationality = "";
