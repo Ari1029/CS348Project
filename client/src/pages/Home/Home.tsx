@@ -30,7 +30,7 @@ export const Home = () => {
     <Box sx={{p: 3}}>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <Typography variant="h6">Welcome to Formula 1 SQL, a website for technical fans to analyze historic data up to 2023 of the biggest international racing sport in the world.</Typography>
-        <Typography variant="h6" style={{ color: querySuccess ? "green" : "orange" }}>{querySuccess ? "🟢 Database Status: Online" : "🟠 Database Status: Offline (Starting...)"}</Typography>
+        <Typography variant="h6" style={{ color: querySuccess ? "green" : "orange" }}>{querySuccess ? "🟢 Backend Status: Online" : "🟠 Backend Status: Offline (starting...)"}</Typography>
         <Box sx={{ border: 1, borderRadius: 2, p: 2 }}>
           <Typography fontStyle="italic">Special Feature</Typography>
           <Typography sx={{ fontSize: "32px", fontWeight: 600, mb: 2 }}>Driver Ratings</Typography>
