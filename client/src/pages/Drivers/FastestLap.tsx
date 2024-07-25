@@ -11,8 +11,8 @@ type propTypes = {
 export const FastestLap = ({fastestLap, setFastestLap}: propTypes) => {
     const [raceName, setRaceName] = useState<string>("Monaco Grand Prix");
     const [raceYear, setRaceYear] = useState<number>(2023);
-    const [driverSurname, setDriverSurname] = useState<string>("");
-    const [driverForename, setDriverForename] = useState<string>("");
+    const [driverSurname, setDriverSurname] = useState<string>("Hamilton");
+    const [driverForename, setDriverForename] = useState<string>("Lewis");
 
     const onChangeRaceYear = (newVal: string) => {
         const newNum = parseInt(newVal);
@@ -91,6 +91,7 @@ export const FastestLap = ({fastestLap, setFastestLap}: propTypes) => {
                     sx={{ width: "48%" }}
                 />
             </Box>
+            <small>Examples: Monaco Grand Prix, Lewis Hamilton</small>
             <Button
                 sx={{ maxWidth: "400px" }}
                 variant="contained"

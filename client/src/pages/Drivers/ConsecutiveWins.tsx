@@ -55,7 +55,7 @@ export const ConsecutiveWins = ({consecutiveWins, setConsecutiveWins}) => {
                     sx={{ width: "48%" }}
                 />
             </Box>
-            <small>Examples: Max Verstappen (query is recursive, may be slow)</small>
+            <small>Examples: Max Verstappen (query is recursive, may take longer)</small>
             <Button
                 sx={{ maxWidth: "400px" }}
                 variant="contained"

@@ -7,32 +7,18 @@ export const Scorecard = ({driverForename, driverSurname, data}) => {
     let imgDriverSurname = driverSurname.charAt(0).toUpperCase() + driverSurname.slice(1);
 
     const driverNames = [
-        'Max_Verstappen',
-        'Lewis_Hamilton',
-        'Charles_Leclerc',
-        'Carlos_Sainz',
-        'Sergio_Perez',
-        'George_Russell',
-        'Lando_Norris',
-        'Daniel_Ricciardo',
-        'Esteban_Ocon',
-        'Pierre_Gasly',
-        'Fernando_Alonso',
-        'Lance_Stroll',
-        'Valtteri_Bottas',
-        'Zhou_Guanyu',
-        'Kevin_Magnussen',
-        'Nico_Hulkenberg',
-        'Alexander_Albon',
-        'Logan_Sargeant',
-        'Oscar_Piastri',
-        'Yuki_Tsunoda'
+        'Max Verstappen', 'Lewis Hamilton', 'Charles Leclerc', 'Carlos Sainz', 
+        'Sergio Pérez', 'George Russell', 'Lando Norris', 'Daniel Ricciardo', 
+        'Esteban Ocon', 'Pierre Gasly', 'Fernando Alonso', 'Lance Stroll', 
+        'Valtteri Bottas', 'Guanyu Zhou', 'Kevin Magnussen', 'Nico Hülkenberg', 
+        'Alexander Albon', 'Logan Sargeant', 'Oscar Piastri', 'Yuki Tsunoda'
     ]
 
-    if (!driverNames.some(name => name.toLowerCase() === (driverForename + "_" + driverSurname).toLowerCase())) {
+    if (!driverNames.some(name => name.toLowerCase() === (driverForename + " " + driverSurname).toLowerCase())) {
         imgDriverForename = "Generic";
         imgDriverSurname = "F1";
     }
+    console.log(imgDriverForename, imgDriverSurname);
         
     // HANDLE DATA
 

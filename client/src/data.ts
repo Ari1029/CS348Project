@@ -1,8 +1,8 @@
 export const drivers = [
     'Max Verstappen', 'Lewis Hamilton', 'Charles Leclerc', 'Carlos Sainz', 
-    'Sergio Perez', 'George Russell', 'Lando Norris', 'Daniel Ricciardo', 
+    'Sergio Pérez', 'George Russell', 'Lando Norris', 'Daniel Ricciardo', 
     'Esteban Ocon', 'Pierre Gasly', 'Fernando Alonso', 'Lance Stroll', 
-    'Valtteri Bottas', 'Zhou Guanyu', 'Kevin Magnussen', 'Nico Hulkenberg', 
+    'Valtteri Bottas', 'Guanyu Zhou', 'Kevin Magnussen', 'Nico Hülkenberg', 
     'Alexander Albon', 'Logan Sargeant', 'Oscar Piastri', 'Yuki Tsunoda'
 ].map(name => ({
     forename: name.split(' ')[0],
@@ -10,11 +10,28 @@ export const drivers = [
 }));
 
 export const raceNames = [
-    "Australian Grand Prix", "Malaysian Grand Prix", "Chinese Grand Prix", "Bahrain Grand Prix",
-    "Spanish Grand Prix", "Monaco Grand Prix", "Turkish Grand Prix", "British Grand Prix",
-    "German Grand Prix", "Hungarian Grand Prix", "European Grand Prix", "Belgian Grand Prix",
-    "Italian Grand Prix", "Singapore Grand Prix", "Japanese Grand Prix", "Brazilian Grand Prix",
-    "Abu Dhabi Grand Prix", "Canadian Grand Prix", "French Grand Prix", "United States Grand Prix"
+    "Bahrain Grand Prix",
+    "Saudi Arabian Grand Prix",
+    "Australian Grand Prix",
+    "Azerbaijan Grand Prix",
+    "Miami Grand Prix",
+    "Monaco Grand Prix",
+    "Spanish Grand Prix",
+    "Canadian Grand Prix",
+    "Austrian Grand Prix",
+    "British Grand Prix",
+    "Hungarian Grand Prix",
+    "Belgian Grand Prix",
+    "Dutch Grand Prix",
+    "Italian Grand Prix",
+    "Singapore Grand Prix",
+    "Japanese Grand Prix",
+    "Qatar Grand Prix",
+    "United States Grand Prix",
+    "Mexico City Grand Prix",
+    "São Paulo Grand Prix",
+    "Las Vegas Grand Prix",
+    "Abu Dhabi Grand Prix"
 ];
 
 export const constructors = [

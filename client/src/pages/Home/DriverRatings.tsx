@@ -5,8 +5,8 @@ import Scorecard from "components/Scorecard";
 import { drivers } from 'data'; // Import from data file
 
 export const DriverRatings = () => {
-    const [driverSurname, setDriverSurname] = useState("");
-    const [driverForename, setDriverForename] = useState("");
+    const [driverSurname, setDriverSurname] = useState("Verstappen");
+    const [driverForename, setDriverForename] = useState("Max");
     const [showScorecard, setShowScorecard] = useState(false);
     const [scorecardData, setScorecardData] = useState({
         driverForename: "",
