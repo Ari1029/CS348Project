@@ -7,8 +7,10 @@ To run the database-driven application, follow the steps below. The production d
 2. In the client directory, run "npm install"
 3. Visit http://localhost:3000 in your web browser.
 
+**OR** just visit https://f1-sql.onrender.com/. (Note that it may take 50 seconds to spin up the backend if it hasn't been pinged recently).
+
 ## Features
-There are current three pages in the web client: "Home",  "Rankings", "Drivers", and "Constructors" where you can find all six features using SQL queries, now working dynamically with the database for Milestone 2.
+There are current four pages in the web client: "Home",  "Rankings", "Drivers", and "Constructors" where you can find all six features + fancy features using SQL queries, now working dynamically with the database.
 
 #### Home screen:
 ![image](https://github.com/user-attachments/assets/d5b9e7e1-103c-48ea-8c0f-a336606a3736)
