@@ -1,5 +1,6 @@
 # CS 348 Project: Formula 1 SQL
 CS348 Web-based Application project by Aditya Keerthi, Aryan Sharma, Alex Zhu, Cheney Cai, Ryan Shen
+Demo: https://youtu.be/uCIRlqrR-Gg
 
 ## How to run the application:
 To run the database-driven application, follow the steps below. The production database is on Neon and the application will automatically connect to the live server.
